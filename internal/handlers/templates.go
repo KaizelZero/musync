@@ -187,3 +187,82 @@ const (
 </html>
 `
 )
+
+const mergePlaylistFormTemplate = `
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MuSync - Merge Playlists</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #1DB954;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="text"], select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+        button {
+            background-color: #1DB954;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Create Merged Playlist</h1>
+    <form method="POST" action="/merge-playlist">
+        <label for="playlist_name">Playlist Name:</label>
+        <input type="text" id="playlist_name" name="playlist_name" required>
+        
+        <label for="playlist_description">Description:</label>
+        <input type="text" id="playlist_description" name="playlist_description">
+        
+        <label for="source_service">Source Service:</label>
+        <select id="source_service" name="source_service" required>
+            <option value="spotify">Spotify</option>
+            <option value="youtube">YouTube Music</option>
+        </select>
+        
+        <label for="source_playlist">Source Playlist:</label>
+        <select id="source_playlist" name="source_playlist" required>
+            <option value="">-- Select a playlist --</option>
+            <!-- This would be populated dynamically with JavaScript -->
+        </select>
+        
+        <label for="target_service">Target Service:</label>
+        <select id="target_service" name="target_service" required>
+            <option value="spotify">Spotify</option>
+            <option value="youtube">YouTube Music</option>
+        </select>
+        
+        <button type="submit">Create Playlist</button>
+    </form>
+    
+    <script>
+        // JavaScript would go here to fetch playlists dynamically based on selected service
+        document.getElementById('source_service').addEventListener('change', function() {
+            // Fetch playlists for the selected service
+            // This is a placeholder - real implementation would call appropriate API endpoints
+            console.log("Service changed to: " + this.value);
+        });
+    </script>
+</body>
+</html>
+`

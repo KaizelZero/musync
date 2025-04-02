@@ -36,9 +36,9 @@ func main() {
 	http.HandleFunc("/playlists/spotify", handler.SpotifyPlaylists)
 
 	// Placeholder for YouTube routes
-	http.HandleFunc("/login/youtube", handler.NotImplemented)
-	http.HandleFunc("/callback/youtube", handler.NotImplemented)
-	http.HandleFunc("/playlists/youtube", handler.NotImplemented)
+	http.HandleFunc("/login/youtube", handler.YouTubeMusicLogin)
+	http.HandleFunc("/callback/youtube", handler.YouTubeMusicCallback)
+	http.HandleFunc("/playlists/youtube", handler.YouTubeMusicPlaylists)
 
 	// Sync functionality (not implemented yet)
 	http.HandleFunc("/sync", handler.NotImplemented)
